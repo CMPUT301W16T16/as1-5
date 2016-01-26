@@ -7,7 +7,7 @@
     <string name="enter_station">Enter Station</string>
     <string name="enter_odometer">Enter Odometer Reading (x.x km)</string>
     <string name="enter_fuel_grade">Enter Fuel Grade</string>
-    <string name="enter_fuel_amount">Enter Fuel Amount</string>
+    <string name="enter_fuel_amount">Enter Fuel Amount (L)</string>
     <string name="enter_unit_cost">Enter Unit Cost (x.x Cents/L)</string>
     <string name="fuel_cost">Fuel Cost</string>
     <string name="previous_entries">PREVIOUS ENTRIES</string>

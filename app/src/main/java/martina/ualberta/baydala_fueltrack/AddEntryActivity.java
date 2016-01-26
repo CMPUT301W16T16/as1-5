@@ -1,5 +1,6 @@
 package martina.ualberta.baydala_fueltrack;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,17 +12,23 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 public class AddEntryActivity extends AppCompatActivity {
+    public static final String KEY = "new_entry";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_add_entry);
+
+        // TODO delete toolbar support when you're sure that it won't cause problems at run time
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
-
-
 
     }
 
@@ -47,15 +54,27 @@ public class AddEntryActivity extends AppCompatActivity {
         //taken from these pages:
         //http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
         //http://stackoverflow.com/questions/4429036/passing-string-array-between-android-activities
+        //Bundle bundle = new Bundle();
+        // this definitely contains actual strings
+        String[] new_entry = {entered_day, entered_station, entered_odometer,
+                           entered_fuel_grade, entered_fuel_amount,
+                           entered_unit_cost};
+        //bundle.putStringArray("new_entry", new_entry);
+        //setResult(Activity.RESULT_OK, intent);
+        //finish();
+
         Bundle bundle = new Bundle();
-        bundle.putStringArray("key", new String[]{entered_day, entered_station, entered_odometer,
-                entered_fuel_grade, entered_fuel_amount,
-                entered_unit_cost});
+        bundle.putStringArray("new_entry", new_entry);
         Intent intent = new Intent(this, AddEntryActivity.class);
         intent.putExtras(bundle);
+        setResult(Activity.RESULT_OK, intent);
         finish();
 
+        // I don't think there's anything wrong with this right now but it could be part of the problem when trying to pass this info back
+
     }
+
+
 
 }
 

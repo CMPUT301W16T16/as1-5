@@ -3,7 +3,10 @@ package martina.ualberta.baydala_fueltrack;
 /**
  * Created by Martina on 16-01-25.
  */
+
+// TODO set a default for each entry value so the user doesn't have to enter into each field. The default could be "n/a" or "Not Entered"
 public class Entry {
+    //declaration of variables
     protected String day;
     protected String station;
     protected String odometer;
@@ -11,6 +14,7 @@ public class Entry {
     protected String fuel_amount;
     protected String unit_cost;
 
+    //contructor
     public Entry(String[] entry) {
         this.day = entry[0];
         this.station = entry[1];
@@ -67,4 +71,16 @@ public class Entry {
     public void setUnit_cost(String unit_cost) {
         this.unit_cost = unit_cost;
     }
+
+    // TODO change the entry toString() to the string that we actually want to be returned (one item per line?)
+
+    @Override
+    public String toString(){ return "Date:        " + day + "\n" +
+                                     "Station:     " + station + "\n" +
+                                     "Odometer:    " + odometer + "\n" +
+                                     "Fuel Grade:  " + fuel_grade + "\n" +
+                                     "Fuel Amount: " + fuel_amount + "\n" +
+                                     "Unit Cost:   " + unit_cost + "\n";
+    }
+
 }

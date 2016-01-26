@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,11 +17,12 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+// TODO make the app design prettier
+
 public class FuelTrack extends AppCompatActivity {
 
     private static final int LOG_ENTRY = 1;
     private ListView previousEntries;
-
     private ArrayList<Entry> entries = new ArrayList<Entry>();
     private ArrayAdapter<Entry> adapter;
 
@@ -28,10 +30,17 @@ public class FuelTrack extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_fuel_track);
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+
+
+        //TODO make it possible to load from file String[] entries = loadFromFile();
+        adapter = new ArrayAdapter<Entry>(this,
+                R.layout.list_items, entries);
 
         previousEntries = (ListView) findViewById(R.id.previousEntries);
+        previousEntries.setAdapter(adapter);
+
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
     }
 
@@ -57,32 +66,9 @@ public class FuelTrack extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch(requestCode) {
-            case (LOG_ENTRY) : {
-                if (resultCode == Activity.RESULT_OK) {
-                    Bundle bundle = this.getIntent().getExtras();
-                    String[] returned_entry = (bundle.getStringArray("key"));
-                    Entry new_entry = new Entry(returned_entry);
-                    entries.add(new_entry);
-                    adapter.notifyDataSetChanged();
-
-                }
-                break;
-            }
-        }
-    }
-
     protected void onStart() {
-        // TODO Auto-generated method stub
         super.onStart();
-        //String[] tweets = loadFromFile();
-        adapter = new ArrayAdapter<Entry>(this,
-                R.layout.list_items, entries);
-        previousEntries.setAdapter(adapter);
+
     }
 
     //http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
@@ -92,6 +78,28 @@ public class FuelTrack extends AppCompatActivity {
         startActivityForResult(intent, LOG_ENTRY);
 
     }
+    //http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case (LOG_ENTRY) : {
+                if (resultCode == Activity.RESULT_OK) {
+                    Bundle bundle = data.getExtras();
+                    String[] new_entry = bundle.getStringArray("new_entry");
+                    Entry entry = new Entry(new_entry);
+                    entries.add(entry);
+                    adapter.notifyDataSetChanged();
+
+                }
+                break;
+            }
+        }
+    }
+
+    // TODO add the ability to save from and fetch from a file so the data is not lost at restart
+    // TODO add Json so the saving and fetching just cause
+
 
 
 }
