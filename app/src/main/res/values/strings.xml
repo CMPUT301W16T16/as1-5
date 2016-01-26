@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">baydala-FuelTrack</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_add_entry">Add Entry</string>
+    <string name="title_activity_add_entry">Add A New Entry</string>
+    <string name="enter_day">Enter Date (yyyy-mm-dd)</string>
+    <string name="enter_station">Enter Station</string>
+    <string name="enter_odometer">Enter Odometer Reading (x.x km)</string>
+    <string name="enter_fuel_grade">Enter Fuel Grade</string>
+    <string name="enter_fuel_amount">Enter Fuel Amount</string>
+    <string name="enter_unit_cost">Enter Unit Cost (x.x Cents/L)</string>
+    <string name="fuel_cost">Fuel Cost</string>
+    <string name="previous_entries">PREVIOUS ENTRIES</string>
+    <string name="button_complete_entry">Done</string>
+</resources>
