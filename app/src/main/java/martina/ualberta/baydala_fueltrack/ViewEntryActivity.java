@@ -92,4 +92,6 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
         view_unit_cost.setText(new_entry.getUnit_cost());
     }
 
+    //TODO change the title values not to include units
+
 }

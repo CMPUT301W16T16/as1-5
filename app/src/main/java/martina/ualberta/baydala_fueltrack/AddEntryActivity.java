@@ -54,7 +54,6 @@ public class AddEntryActivity extends AppCompatActivity {
         finish();
     }
 
-
-
+    //TODO add a cancel button (and set defaults -OR- a warning if the user doesn't enter anything)
 }
 

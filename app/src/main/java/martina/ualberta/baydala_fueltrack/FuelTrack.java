@@ -26,7 +26,6 @@ public class FuelTrack extends AppCompatActivity {
 
     private static final int LOG_ENTRY = 1;
     private static final int LOG_VIEW = 2;
-    private ListView previousEntries;
     private ArrayList<Entry> entries = new ArrayList<Entry>();
     private ArrayAdapter<Entry> adapter;
     private int entryNumber = 1;
@@ -41,7 +40,7 @@ public class FuelTrack extends AppCompatActivity {
         adapter = new ArrayAdapter<Entry>(this,
                 R.layout.list_items, entries);
 
-        previousEntries = (ListView) findViewById(R.id.previousEntries);
+        ListView previousEntries = (ListView) findViewById(R.id.previousEntries);
         previousEntries.setAdapter(adapter);
 
         //allows the user the select any log entry to see more details about it, and to edit it
@@ -135,6 +134,8 @@ public class FuelTrack extends AppCompatActivity {
 
     // TODO add the ability to save from and fetch from a file so the data is not lost at restart
     // TODO add Json to the saving and fetching just cause
+
+    //TODO add a fuel cost to the bottom of the screen
 
 
 
