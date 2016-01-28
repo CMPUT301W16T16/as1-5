@@ -1,19 +1,18 @@
 package martina.ualberta.baydala_fueltrack;
 
 import android.widget.TextView;
+import java.io.Serializable;
 
 /**
  * Created by Martina on 16-01-25.
  */
 
-//pages instead of a list view
-// TODO see if the titles for the entry can be in the form of a TextView
 // TODO set a default for each entry value so the user doesn't have to enter into each field. The default could be "n/a" or "Not Entered"
-public class Entry {
-
-    private TextView entryTitles;
+@SuppressWarnings("serial")
+public class Entry implements Serializable {
 
     //declaration of variables
+    protected String entry_number;
     protected String day;
     protected String station;
     protected String odometer;
@@ -21,7 +20,9 @@ public class Entry {
     protected String fuel_amount;
     protected String unit_cost;
 
-    //contructor
+    public Entry() { }
+
+    //constructor
     public Entry(String[] entry) {
         this.day = entry[0];
         this.station = entry[1];
@@ -29,6 +30,7 @@ public class Entry {
         this.fuel_grade = entry[3];
         this.fuel_amount = entry[4];
         this.unit_cost = entry[5];
+        this.entry_number = entry[6];
     }
 
     public String getDay() {
@@ -55,6 +57,10 @@ public class Entry {
         return unit_cost;
     }
 
+    public String getEntry_number() {
+        return entry_number;
+    }
+
     public void setDay(String day) {
         this.day = day;
     }
@@ -79,15 +85,11 @@ public class Entry {
         this.unit_cost = unit_cost;
     }
 
-    // TODO change the entry toString() to the string that we actually want to be returned (one item per line?)
-
     @Override
-    public String toString(){ return "Date:        " + day + "\n" +
-                                     "Station:     " + station + "\n" +
-                                     "Odometer:    " + odometer + "\n" +
-                                     "Fuel Grade:  " + fuel_grade + "\n" +
-                                     "Fuel Amount: " + fuel_amount + "\n" +
-                                     "Unit Cost:   " + unit_cost + "\n";
+    public String toString() {
+        return "Entry Number " + entry_number;
     }
+
+
 
 }

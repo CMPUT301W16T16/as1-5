@@ -20,8 +20,7 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
 
     private static final int LOG_EDIT = 1;
     private Entry entry;
-    private ViewSwitcher switcher;
-    private ArrayList<String> edits;
+    private Entry updated_entry;
 
     private TextView view_day;
     private TextView view_station;
@@ -37,7 +36,8 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
 
         Intent intent = getIntent();
         entry = (Entry) intent.getSerializableExtra("Entry");
-
+        //so the same old entry will be returned if no updates are made
+        updated_entry = entry;
 
         view_day = (TextView) findViewById(R.id.view_day);
         view_station = (TextView) findViewById(R.id.view_station);
@@ -46,22 +46,20 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
         view_fuel_amount = (TextView) findViewById(R.id.view_fuel_amount);
         view_unit_cost = (TextView) findViewById(R.id.view_unit_cost);
 
-        view_day.setText(entry.getDay());
-        view_station.setText(entry.getStation());
-        view_odometer.setText(entry.getOdometer());
-        view_fuel_grade.setText(entry.getFuel_grade());
-        view_fuel_amount.setText(entry.getFuel_amount());
-        view_unit_cost.setText(entry.getUnit_cost());
-
+        updateEntryText(entry);
     }
 
-    public void viewDayClicked(View view) {
-        //TODO find a way to make it possible to edit these values in a decent way
-        entry.setEdit_day(true);
+    public void editButtonClicked(View view) {
         Intent intent = new Intent(this, EditEntryActivity.class);
         intent.putExtra("entry", entry);
         startActivityForResult(intent, LOG_EDIT);
+    }
 
+    public void doneButtonClicked(View view) {
+        Intent intent = new Intent(this, EditEntryActivity.class);
+        intent.putExtra("updated_entry", updated_entry);
+        setResult(Activity.RESULT_OK, intent);
+        finish();
     }
 
     //http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
@@ -71,13 +69,21 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
         switch(requestCode) {
             case (LOG_EDIT) : {
                 if (resultCode == Activity.RESULT_OK) {
-                    Bundle bundle = data.getExtras();
-                    String[] info_return = bundle.getStringArray("Item");
-
+                    updated_entry = (Entry) data.getSerializableExtra("Item");
+                    updateEntryText(updated_entry);
                 }
                 break;
             }
         }
+    }
+
+    public void updateEntryText(Entry new_entry) {
+        view_day.setText(new_entry.getDay());
+        view_station.setText(new_entry.getStation());
+        view_odometer.setText(new_entry.getOdometer());
+        view_fuel_grade.setText(new_entry.getFuel_grade());
+        view_fuel_amount.setText(new_entry.getFuel_amount());
+        view_unit_cost.setText(new_entry.getUnit_cost());
     }
 
 }

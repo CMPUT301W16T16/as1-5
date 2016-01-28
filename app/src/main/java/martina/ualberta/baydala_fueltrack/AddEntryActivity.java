@@ -18,17 +18,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
+
 public class AddEntryActivity extends AppCompatActivity {
-    public static final String KEY = "new_entry";
+
+    private int entryNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_add_entry);
 
-        // TODO delete toolbar support when you're sure that it won't cause problems at run time
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        Intent intent = getIntent();
+        entryNumber = intent.getIntExtra("Entry Number", 0);
 
     }
 
@@ -58,7 +59,7 @@ public class AddEntryActivity extends AppCompatActivity {
         // this definitely contains actual strings
         String[] new_entry = {entered_day, entered_station, entered_odometer,
                            entered_fuel_grade, entered_fuel_amount,
-                           entered_unit_cost};
+                           entered_unit_cost, Integer.toString(entryNumber)};
         //bundle.putStringArray("new_entry", new_entry);
         //setResult(Activity.RESULT_OK, intent);
         //finish();

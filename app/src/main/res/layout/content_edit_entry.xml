@@ -9,28 +9,181 @@
     tools:context="martina.ualberta.baydala_fueltrack.EditEntryActivity"
     tools:showIn="@layout/activity_edit_entry">
 
-    <Button
-        android:id="@+id/done_edit_entry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="completeEditEntry"
-        android:layout_gravity="right" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_gravity="center_horizontal" />
-
-    <TextView
-        android:id="@+id/edit_item_title"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_item_hint" />
+        android:orientation="horizontal" >
+        <Button
+            android:id="@+id/done_edit_entry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="completeEditEntry"
+            android:layout_gravity="end"
+            android:text="@string/done_button"/>
+        <Button
+            android:id="@+id/cancel_edit_entry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="cancelEditEntry"
+            android:layout_gravity="start"
+            android:text="@string/cancel_button"/>
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/edit_item"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/day_title"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textAlignment="viewEnd"
+            android:textColor="#000000"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp" />
+
+        <EditText android:id="@+id/edit_day"
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:gravity="center_vertical"
+                  android:textColor="#000000"
+                  android:textSize="15sp"
+                  android:layout_marginStart="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/station_title"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textAlignment="viewEnd"
+            android:textColor="#000000"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp" />
+
+        <EditText android:id="@+id/edit_station"
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:gravity="center_vertical"
+                  android:textColor="#000000"
+                  android:textSize="15sp"
+                  android:layout_marginStart="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/odometer_title"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textAlignment="viewEnd"
+            android:textColor="#000000"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp" />
+
+        <EditText android:id="@+id/edit_odometer"
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:gravity="center_vertical"
+                  android:textColor="#000000"
+                  android:textSize="15sp"
+                  android:layout_marginStart="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/fuel_grade_title"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textAlignment="viewEnd"
+            android:textColor="#000000"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp" />
+
+        <EditText android:id="@+id/edit_fuel_grade"
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:gravity="center_vertical"
+                  android:textColor="#000000"
+                  android:textSize="15sp"
+                  android:layout_marginStart="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/fuel_amount_title"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textAlignment="viewEnd"
+            android:textColor="#000000"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp" />
+
+        <EditText android:id="@+id/edit_fuel_amount"
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:gravity="center_vertical"
+                  android:textColor="#000000"
+                  android:textSize="15sp"
+                  android:layout_marginStart="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/unit_cost_title"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textAlignment="viewEnd"
+            android:textColor="#000000"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp" />
+
+        <EditText android:id="@+id/edit_unit_cost"
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:gravity="center_vertical"
+                  android:textColor="#000000"
+                  android:textSize="15sp"
+                  android:layout_marginStart="10dp"/>
+    </LinearLayout>
 
 
 

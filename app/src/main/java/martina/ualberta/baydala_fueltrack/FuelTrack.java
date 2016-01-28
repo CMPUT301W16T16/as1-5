@@ -1,3 +1,5 @@
+//used some techniques from "Android Programming by Big Nerd Ranch, Volume 2
+
 package martina.ualberta.baydala_fueltrack;
 
 import android.app.Activity;
@@ -11,20 +13,23 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
-
-// TODO make the app design prettier
 
 public class FuelTrack extends AppCompatActivity {
 
     private static final int LOG_ENTRY = 1;
+    private static final int LOG_VIEW = 2;
     private ListView previousEntries;
     private ArrayList<Entry> entries = new ArrayList<Entry>();
     private ArrayAdapter<Entry> adapter;
+    private int entryNumber = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +44,18 @@ public class FuelTrack extends AppCompatActivity {
         previousEntries = (ListView) findViewById(R.id.previousEntries);
         previousEntries.setAdapter(adapter);
 
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
+        //allows the user the select any log entry to see more details about it and edit it
+        //http://stackoverflow.com/questions/20922036/android-cant-call-setonitemclicklistener-from-a-listview
+        previousEntries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                Entry entry = entries.get(position);
+                Intent intent = new Intent(FuelTrack.this, ViewEntryActivity.class);
+                intent.putExtra("Entry", entry);
+                startActivityForResult(intent, LOG_VIEW);
+            }
+        });
     }
 
     @Override
@@ -75,6 +89,8 @@ public class FuelTrack extends AppCompatActivity {
     //http://stackoverflow.com/questions/4429036/passing-string-array-between-android-activities
     public void addEntry (View view) {
         Intent intent = new Intent(this, AddEntryActivity.class);
+        intent.putExtra("Entry Number", entryNumber);
+        entryNumber += 1;
         startActivityForResult(intent, LOG_ENTRY);
 
     }
@@ -90,15 +106,28 @@ public class FuelTrack extends AppCompatActivity {
                     Entry entry = new Entry(new_entry);
                     entries.add(entry);
                     adapter.notifyDataSetChanged();
-
+                }
+                break;
+            }
+            case(LOG_VIEW) : {
+                if (resultCode == Activity.RESULT_OK) {
+                    Entry result_entry = (Entry) data.getSerializableExtra("updated_entry");
+                    updateEntry(entries, result_entry);
                 }
                 break;
             }
         }
     }
 
+    public void updateEntry(ArrayList<Entry> entry_list, Entry new_entry) {
+        //the position in the entries list is entry_number - 1 because entry_number
+        //started with 1instead of 0
+        int position = Integer.valueOf(new_entry.getEntry_number()) - 1;
+        entry_list.get(position).setDay(new_entry.getDay());
+    }
+
     // TODO add the ability to save from and fetch from a file so the data is not lost at restart
-    // TODO add Json so the saving and fetching just cause
+    // TODO add Json to the saving and fetching just cause
 
 
 
