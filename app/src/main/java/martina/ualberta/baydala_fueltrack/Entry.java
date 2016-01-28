@@ -1,11 +1,18 @@
 package martina.ualberta.baydala_fueltrack;
 
+import android.widget.TextView;
+
 /**
  * Created by Martina on 16-01-25.
  */
 
+//pages instead of a list view
+// TODO see if the titles for the entry can be in the form of a TextView
 // TODO set a default for each entry value so the user doesn't have to enter into each field. The default could be "n/a" or "Not Entered"
 public class Entry {
+
+    private TextView entryTitles;
+
     //declaration of variables
     protected String day;
     protected String station;

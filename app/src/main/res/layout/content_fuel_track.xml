@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="martina.ualberta.baydala_fueltrack.FuelTrack">
 
@@ -20,21 +20,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <ListView android:id="@+id/previousEntries"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:scrollbars="none"
-        android:divider="#ff3a3a"
-        android:dividerHeight="1dp"
-        android:focusableInTouchMode="false"
-        android:footerDividersEnabled="false"
-        android:fastScrollAlwaysVisible="false"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_below="@+id/previousEntriesTitle" />
-
     <Button android:id="@+id/add_entry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,8 +30,17 @@
         android:background="#ff3a3a"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_alignBottom="@+id/previousEntries"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="5dp" />
+
+    <AdapterViewFlipper
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/adapterViewFlipper"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/add_entry" />
 
 
 </RelativeLayout>
