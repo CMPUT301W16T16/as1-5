@@ -76,13 +76,14 @@ public class EditEntryActivity extends AppCompatActivity implements Serializable
             entry.setUnit_cost(edited_unit_cost);
         }
 
+        //return the updated entry to the ViewEntry Activity
         Intent intent = new Intent(this, EditEntryActivity.class);
         intent.putExtra("Item", entry);
         setResult(Activity.RESULT_OK, intent);
         finish();
     }
 
-    //returns the Entry entry without updating it
+    //returns the entry without updating it
     public void cancelEditEntry(View view) {
         Intent intent = new Intent(this, EditEntryActivity.class);
         intent.putExtra("Item", entry);

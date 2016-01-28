@@ -42,7 +42,7 @@ public class Entry implements Serializable {
     }
 
     public String getOdometer() {
-        return odometer;
+        return odometer + " Km";
     }
 
     public String getFuel_grade() {
@@ -50,11 +50,11 @@ public class Entry implements Serializable {
     }
 
     public String getFuel_amount() {
-        return fuel_amount;
+        return fuel_amount + " L";
     }
 
     public String getUnit_cost() {
-        return unit_cost;
+        return unit_cost + " Cents/L";
     }
 
     public String getEntry_number() {

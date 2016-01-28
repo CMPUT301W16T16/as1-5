@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class ViewEntryActivity extends AppCompatActivity implements Serializable {
 
     private static final int LOG_EDIT = 1;
+
     private Entry entry;
     private Entry updated_entry;
 
@@ -36,6 +37,7 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
 
         Intent intent = getIntent();
         entry = (Entry) intent.getSerializableExtra("Entry");
+
         //so the same old entry will be returned if no updates are made
         updated_entry = entry;
 
@@ -49,12 +51,14 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
         updateEntryText(entry);
     }
 
+    //send the entry to the EditEntryActivity to be edited
     public void editButtonClicked(View view) {
         Intent intent = new Intent(this, EditEntryActivity.class);
         intent.putExtra("entry", entry);
         startActivityForResult(intent, LOG_EDIT);
     }
 
+    //return the entry (possibly updated) to the FuelTrack Activity
     public void doneButtonClicked(View view) {
         Intent intent = new Intent(this, EditEntryActivity.class);
         intent.putExtra("updated_entry", updated_entry);
@@ -63,6 +67,7 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
     }
 
     //http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
+    //receive the (possibly) edited entry back from the EditEntryActivity
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -77,6 +82,7 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
         }
     }
 
+    //updates the values on the screen to the values of the entry
     public void updateEntryText(Entry new_entry) {
         view_day.setText(new_entry.getDay());
         view_station.setText(new_entry.getStation());

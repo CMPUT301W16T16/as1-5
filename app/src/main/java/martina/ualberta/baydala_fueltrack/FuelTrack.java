@@ -44,7 +44,7 @@ public class FuelTrack extends AppCompatActivity {
         previousEntries = (ListView) findViewById(R.id.previousEntries);
         previousEntries.setAdapter(adapter);
 
-        //allows the user the select any log entry to see more details about it and edit it
+        //allows the user the select any log entry to see more details about it, and to edit it
         //http://stackoverflow.com/questions/20922036/android-cant-call-setonitemclicklistener-from-a-listview
         previousEntries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -87,6 +87,7 @@ public class FuelTrack extends AppCompatActivity {
 
     //http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
     //http://stackoverflow.com/questions/4429036/passing-string-array-between-android-activities
+    //moves to the AddEntryActivity so a new entry can be made with the appropriate entry number
     public void addEntry (View view) {
         Intent intent = new Intent(this, AddEntryActivity.class);
         intent.putExtra("Entry Number", entryNumber);
@@ -99,6 +100,8 @@ public class FuelTrack extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch(requestCode) {
+            //receives the information from the AddEntryActivity,
+            //converts it into an entry and adds it to the list of entries
             case (LOG_ENTRY) : {
                 if (resultCode == Activity.RESULT_OK) {
                     Bundle bundle = data.getExtras();
@@ -109,6 +112,8 @@ public class FuelTrack extends AppCompatActivity {
                 }
                 break;
             }
+            //receives the entry back after it has been displayed and possibly edited.
+            //if it has been edited, the corresponding entry in the list of entries is updated
             case(LOG_VIEW) : {
                 if (resultCode == Activity.RESULT_OK) {
                     Entry result_entry = (Entry) data.getSerializableExtra("updated_entry");
@@ -119,6 +124,8 @@ public class FuelTrack extends AppCompatActivity {
         }
     }
 
+    //updates an entry in the list of entries (entries)
+    //with it's edited entry returned from ViewEntryActivity
     public void updateEntry(ArrayList<Entry> entry_list, Entry new_entry) {
         //the position in the entries list is entry_number - 1 because entry_number
         //started with 1instead of 0
