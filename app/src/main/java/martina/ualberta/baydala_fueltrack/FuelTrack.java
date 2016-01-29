@@ -20,28 +20,44 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 public class FuelTrack extends AppCompatActivity {
 
     private static final int LOG_ENTRY = 1;
     private static final int LOG_VIEW = 2;
+    private static final String FILENAME = "file.sav";
     private ArrayList<Entry> entries = new ArrayList<Entry>();
     private ArrayAdapter<Entry> adapter;
+    private ListView previousEntries;
     private int entryNumber = 1;
+    private TextView fuel_cost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_fuel_track);
 
-
         //TODO make it possible to load from file String[] entries = loadFromFile();
         adapter = new ArrayAdapter<Entry>(this,
                 R.layout.list_items, entries);
 
-        ListView previousEntries = (ListView) findViewById(R.id.previousEntries);
+        fuel_cost = (TextView) findViewById(R.id.fuel_cost);
+        previousEntries = (ListView) findViewById(R.id.previousEntries);
         previousEntries.setAdapter(adapter);
+        updateCost();
 
         //allows the user the select any log entry to see more details about it, and to edit it
         //http://stackoverflow.com/questions/20922036/android-cant-call-setonitemclicklistener-from-a-listview
@@ -80,9 +96,55 @@ public class FuelTrack extends AppCompatActivity {
     }
 
     protected void onStart() {
-        super.onStart();
 
+        super.onStart();
+        loadFromFile();
+        adapter = new ArrayAdapter<Entry>(this,
+                R.layout.list_items, entries);
+        previousEntries.setAdapter(adapter);
+        updateCost();
     }
+
+    private void loadFromFile() {
+        try {
+            FileInputStream fis = openFileInput(FILENAME);
+            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+            Gson gson = new Gson();
+
+            // Took from https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html 01-19 2016
+            Type listType = new TypeToken<ArrayList<Entry>>() {
+            }.getType();
+            Type intType = new TypeToken<Integer>() { }.getType();
+            entries = gson.fromJson(in, listType);
+            entryNumber = entries.size() + 1;
+
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            entries = new ArrayList<Entry>();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException();
+        }
+    }
+
+    private void saveInFile() {
+        try {
+            FileOutputStream fos = openFileOutput(FILENAME,
+                    0);
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+            Gson gson = new Gson();
+            gson.toJson(entries, out);
+            out.flush();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException();
+        }
+    }
+
 
     //http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
     //http://stackoverflow.com/questions/4429036/passing-string-array-between-android-activities
@@ -92,8 +154,8 @@ public class FuelTrack extends AppCompatActivity {
         intent.putExtra("Entry Number", entryNumber);
         entryNumber += 1;
         startActivityForResult(intent, LOG_ENTRY);
-
     }
+
     //http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -108,6 +170,8 @@ public class FuelTrack extends AppCompatActivity {
                     Entry entry = new Entry(new_entry);
                     entries.add(entry);
                     adapter.notifyDataSetChanged();
+                    saveInFile();
+                    updateCost();
                 }
                 break;
             }
@@ -117,6 +181,9 @@ public class FuelTrack extends AppCompatActivity {
                 if (resultCode == Activity.RESULT_OK) {
                     Entry result_entry = (Entry) data.getSerializableExtra("updated_entry");
                     updateEntry(entries, result_entry);
+                    adapter.notifyDataSetChanged();
+                    saveInFile();
+                    updateCost();
                 }
                 break;
             }
@@ -129,13 +196,25 @@ public class FuelTrack extends AppCompatActivity {
         //the position in the entries list is entry_number - 1 because entry_number
         //started with 1instead of 0
         int position = Integer.valueOf(new_entry.getEntry_number()) - 1;
-        entry_list.get(position).setDay(new_entry.getDay());
+        entry_list.set(position, new_entry);
+        updateCost();
     }
 
-    // TODO add the ability to save from and fetch from a file so the data is not lost at restart
-    // TODO add Json to the saving and fetching just cause
+    public void updateCost() {
+
+        double total_cost = 0.0;
+        for (int i = 0; i < entries.size(); i++) {
+            total_cost += entries.get(i).getFuel_cost();
+        }
+        //http://stackoverflow.com/questions/11701399/round-up-to-2-decimal-places-in-java
+        fuel_cost.setText(String.format("$ %.2f", total_cost));
+    }
+
+
+
 
     //TODO add a fuel cost to the bottom of the screen
+    //TODO add tests
 
 
 

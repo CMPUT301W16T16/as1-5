@@ -14,6 +14,7 @@
 
     <string name="fuel_cost">Fuel Cost</string>
     <string name="previous_entries">PREVIOUS ENTRIES</string>
+    <string name="tap_to_view">Tap to View Details and Edit</string>
 
     <string name="title_activity_view_entry">View Previous Entries</string>
     <string name="day_title">Date</string>
@@ -28,6 +29,8 @@
     <string name="cancel_button">Cancel</string>
 
     <string name="title_activity_edit_entry">Edit Entry</string>
+    <string name="button_cancel_entry">Cancel</string>
+    <string name="fuel_cost_title">Total Fuel Cost</string>
 
 
 </resources>

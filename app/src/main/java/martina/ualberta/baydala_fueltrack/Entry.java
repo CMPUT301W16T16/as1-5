@@ -42,7 +42,7 @@ public class Entry implements Serializable {
     }
 
     public String getOdometer() {
-        return odometer + " Km";
+        return odometer;
     }
 
     public String getFuel_grade() {
@@ -50,15 +50,19 @@ public class Entry implements Serializable {
     }
 
     public String getFuel_amount() {
-        return fuel_amount + " L";
+        return fuel_amount;
     }
 
     public String getUnit_cost() {
-        return unit_cost + " Cents/L";
+        return unit_cost;
     }
 
     public String getEntry_number() {
         return entry_number;
+    }
+
+    public double getFuel_cost() {
+        return Double.valueOf(unit_cost) * Double.valueOf(fuel_amount) / 100.0;
     }
 
     public void setDay(String day) {
@@ -87,7 +91,7 @@ public class Entry implements Serializable {
 
     @Override
     public String toString() {
-        return "Entry Number " + entry_number;
+        return "Entry " + entry_number + " | " + day;
     }
 
 

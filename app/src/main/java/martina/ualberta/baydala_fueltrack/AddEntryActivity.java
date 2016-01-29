@@ -18,7 +18,7 @@ public class AddEntryActivity extends AppCompatActivity {
         setContentView(R.layout.content_add_entry);
 
         Intent intent = getIntent();
-        entryNumber = intent.getIntExtra("Entry Number", 0);
+        entryNumber = intent.getIntExtra("Entry Number", -1);
 
     }
 
@@ -51,6 +51,10 @@ public class AddEntryActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AddEntryActivity.class);
         intent.putExtras(bundle);
         setResult(Activity.RESULT_OK, intent);
+        finish();
+    }
+
+    public void cancelEntry(View view) {
         finish();
     }
 
