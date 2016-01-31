@@ -3,18 +3,11 @@ package martina.ualberta.baydala_fueltrack;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.ViewSwitcher;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class ViewEntryActivity extends AppCompatActivity implements Serializable {
 
@@ -58,7 +51,7 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
         startActivityForResult(intent, LOG_EDIT);
     }
 
-    //return the entry (possibly updated) to the FuelTrack Activity
+    //return the entry (possibly updated) to the FuelTrackActivity Activity
     public void doneButtonClicked(View view) {
         Intent intent = new Intent(this, EditEntryActivity.class);
         intent.putExtra("updated_entry", updated_entry);
@@ -87,9 +80,9 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
         view_day.setText(new_entry.getDay());
         view_station.setText(new_entry.getStation());
         view_odometer.setText(new_entry.getOdometer());
-        view_fuel_grade.setText(new_entry.getFuel_grade());
-        view_fuel_amount.setText(new_entry.getFuel_amount());
-        view_unit_cost.setText(new_entry.getUnit_cost());
+        view_fuel_grade.setText(new_entry.getFuelGrade());
+        view_fuel_amount.setText(new_entry.getFuelAmount());
+        view_unit_cost.setText(new_entry.getUnitCost());
     }
 
     //TODO change the title values not to include units

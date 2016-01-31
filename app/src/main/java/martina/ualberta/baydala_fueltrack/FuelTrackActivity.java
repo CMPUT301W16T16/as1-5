@@ -5,20 +5,14 @@ package martina.ualberta.baydala_fueltrack;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -34,7 +28,7 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-public class FuelTrack extends AppCompatActivity {
+public class FuelTrackActivity extends AppCompatActivity {
 
     private static final int LOG_ENTRY = 1;
     private static final int LOG_VIEW = 2;
@@ -65,7 +59,7 @@ public class FuelTrack extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
                 Entry entry = entries.get(position);
-                Intent intent = new Intent(FuelTrack.this, ViewEntryActivity.class);
+                Intent intent = new Intent(FuelTrackActivity.this, ViewEntryActivity.class);
                 intent.putExtra("Entry", entry);
                 startActivityForResult(intent, LOG_VIEW);
             }
@@ -194,7 +188,7 @@ public class FuelTrack extends AppCompatActivity {
     public void updateEntry(ArrayList<Entry> entry_list, Entry new_entry) {
         //the position in the entries list is entry_number - 1 because entry_number
         //started with 1instead of 0
-        int position = Integer.valueOf(new_entry.getEntry_number()) - 1;
+        int position = Integer.valueOf(new_entry.getEntryNumber()) - 1;
         entry_list.set(position, new_entry);
         updateCost();
     }
@@ -202,7 +196,7 @@ public class FuelTrack extends AppCompatActivity {
     public void updateCost() {
         double total_cost = 0.0;
         for (int i = 0; i < entries.size(); i++) {
-            total_cost += entries.get(i).getFuel_cost();
+            total_cost += entries.get(i).getFuelCost();
         }
         //http://stackoverflow.com/questions/11701399/round-up-to-2-decimal-places-in-java
         fuel_cost.setText(String.format("$ %.2f", total_cost));

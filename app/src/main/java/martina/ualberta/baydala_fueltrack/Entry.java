@@ -44,23 +44,23 @@ public class Entry implements Serializable {
         return odometer;
     }
 
-    public String getFuel_grade() {
+    public String getFuelGrade() {
         return fuel_grade;
     }
 
-    public String getFuel_amount() {
+    public String getFuelAmount() {
         return fuel_amount;
     }
 
-    public String getUnit_cost() {
+    public String getUnitCost() {
         return unit_cost;
     }
 
-    public String getEntry_number() {
+    public String getEntryNumber() {
         return entry_number;
     }
 
-    public double getFuel_cost() {
+    public double getFuelCost() {
         return Double.valueOf(unit_cost) * Double.valueOf(fuel_amount) / 100.0;
     }
 
@@ -76,15 +76,15 @@ public class Entry implements Serializable {
         this.odometer = odometer;
     }
 
-    public void setFuel_grade(String fuel_grade) {
+    public void setFuelGrade(String fuel_grade) {
         this.fuel_grade = fuel_grade;
     }
 
-    public void setFuel_amount(String fuel_amount) {
+    public void setFuelAmount(String fuel_amount) {
         this.fuel_amount = fuel_amount;
     }
 
-    public void setUnit_cost(String unit_cost) {
+    public void setUnitCost(String unit_cost) {
         this.unit_cost = unit_cost;
     }
 

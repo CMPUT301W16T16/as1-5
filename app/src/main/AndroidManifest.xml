@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".FuelTrack"
+            android:name=".FuelTrackActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -21,11 +21,11 @@
         <activity
             android:name=".AddEntryActivity"
             android:label="@string/title_activity_add_entry"
-            android:parentActivityName=".FuelTrack"
+            android:parentActivityName=".FuelTrackActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="martina.ualberta.baydala_fueltrack.FuelTrack" />
+                android:value=".FuelTrackActivity" />
         </activity>
         <activity
             android:name=".ViewEntryActivity"

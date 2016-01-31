@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="martina.ualberta.baydala_fueltrack.FuelTrack" android:weightSum="1">
+    tools:context=".FuelTrackActivity" android:weightSum="1">
 
     <TextView
         android:id="@+id/previousEntriesTitle"

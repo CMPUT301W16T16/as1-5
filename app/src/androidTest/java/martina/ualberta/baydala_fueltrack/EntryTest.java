@@ -7,32 +7,32 @@ import android.test.ActivityInstrumentationTestCase2;
  */
 public class EntryTest extends ActivityInstrumentationTestCase2 {
     public EntryTest() {
-        super(FuelTrack.class);
+        super(FuelTrackActivity.class);
     }
 
     public void testGetFuelAmount() {
         Entry entry = new Entry();
-        entry.setFuel_amount("50");
-        assertEquals(50.0, Double.valueOf(entry.getFuel_amount()));
+        entry.setFuelAmount("50");
+        assertEquals(50.0, Double.valueOf(entry.getFuelAmount()));
     }
 
     public void testGetUnitCost() {
         Entry entry = new Entry();
-        entry.setUnit_cost("50");
-        assertEquals(50.0, Double.valueOf(entry.getUnit_cost()));
+        entry.setUnitCost("50");
+        assertEquals(50.0, Double.valueOf(entry.getUnitCost()));
     }
 
     public void testGetFuelCost() {
         Entry entry = new Entry();
-        entry.setFuel_amount("50");
-        entry.setUnit_cost("70.6");
+        entry.setFuelAmount("50");
+        entry.setUnitCost("70.6");
         double expected_fuel_cost = 50 * 70.6 / 100.0;
-        assertEquals(entry.getFuel_cost(), expected_fuel_cost);
+        assertEquals(entry.getFuelCost(), expected_fuel_cost);
 
-        entry.setFuel_amount("0.0");
-        entry.setUnit_cost("0.0");
+        entry.setFuelAmount("0.0");
+        entry.setUnitCost("0.0");
         expected_fuel_cost = 0 * 0 / 100.0;
-        assertEquals(entry.getFuel_cost(), expected_fuel_cost);
+        assertEquals(entry.getFuelCost(), expected_fuel_cost);
     }
 
     public void testToString() {

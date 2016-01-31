@@ -3,13 +3,9 @@ package martina.ualberta.baydala_fueltrack;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import java.io.Serializable;
 
@@ -42,9 +38,9 @@ public class EditEntryActivity extends AppCompatActivity implements Serializable
         edit_day.setHint(entry.getDay());
         edit_station.setHint(entry.getStation());
         edit_odometer.setHint(entry.getOdometer());
-        edit_fuel_grade.setHint(entry.getFuel_grade());
-        edit_fuel_amount.setHint(entry.getFuel_amount());
-        edit_unit_cost.setHint(entry.getUnit_cost());
+        edit_fuel_grade.setHint(entry.getFuelGrade());
+        edit_fuel_amount.setHint(entry.getFuelAmount());
+        edit_unit_cost.setHint(entry.getUnitCost());
     }
 
     //returns the Entry entry after updating it
@@ -67,13 +63,13 @@ public class EditEntryActivity extends AppCompatActivity implements Serializable
             entry.setOdometer(edited_odometer);
         }
         if (!edited_fuel_grade.isEmpty()) {
-            entry.setFuel_grade(edited_fuel_grade);
+            entry.setFuelGrade(edited_fuel_grade);
         }
         if (!edited_fuel_amount.isEmpty()) {
-            entry.setFuel_amount(edited_fuel_amount);
+            entry.setFuelAmount(edited_fuel_amount);
         }
         if (!edited_unit_cost.isEmpty()) {
-            entry.setUnit_cost(edited_unit_cost);
+            entry.setUnitCost(edited_unit_cost);
         }
 
         //return the updated entry to the ViewEntry Activity

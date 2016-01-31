@@ -51,11 +51,13 @@ public class AddEntryActivity extends AppCompatActivity {
 
             public void onClick(View view) {
                 convertInputToString();
+                //allows the user to enter values into the empty fields
                 if (entered_day.isEmpty() || entered_station.isEmpty() || entered_odometer.isEmpty() ||
                         entered_fuel_grade.isEmpty() || entered_fuel_amount.isEmpty() || entered_unit_cost.isEmpty()) {
                     Toast.makeText(AddEntryActivity.this, R.string.empty_field, Toast.LENGTH_SHORT).show();
+                //returns the new entry back to FuelTrackActivity
                 } else {
-                    //returning the inputted Strings to the FuelTrack class to be displayed
+                    //returning the inputted Strings to the FuelTrackActivity class to be displayed
                     //http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
                     //http://stackoverflow.com/questions/4429036/passing-string-array-between-android-activities
                     String[] new_entry = {entered_day, entered_station, entered_odometer,
@@ -80,7 +82,7 @@ public class AddEntryActivity extends AppCompatActivity {
             onCreate();
         }
 
-        //returning the inputted Strings to the FuelTrack class to be displayed
+        //returning the inputted Strings to the FuelTrackActivity class to be displayed
         //http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
         //http://stackoverflow.com/questions/4429036/passing-string-array-between-android-activities
         String[] new_entry = {entered_day, entered_station, entered_odometer,
