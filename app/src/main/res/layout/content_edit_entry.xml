@@ -18,15 +18,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="completeEditEntry"
-            android:layout_gravity="end"
-            android:text="@string/done_button"/>
+            android:text="@string/done_button"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:background="#d53939"
+            android:padding="5dp"
+            android:layout_marginRight="2.5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"/>/>
         <Button
             android:id="@+id/cancel_edit_entry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="cancelEditEntry"
-            android:layout_gravity="start"
-            android:text="@string/cancel_button"/>
+            android:text="@string/cancel_button"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:background="#d53939"
+            android:padding="5dp"
+            android:layout_marginLeft="2.5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -39,11 +53,13 @@
             android:text="@string/day_title"
             android:layout_weight="1"
             android:textSize="15sp"
-            android:textAlignment="viewEnd"
+            android:textAlignment="viewStart"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:textStyle="bold"
-            android:layout_marginEnd="10dp" />
+            android:layout_marginEnd="10dp"
+            android:layout_marginLeft="5dp"
+            android:paddingLeft="5dp"/>
 
         <EditText android:id="@+id/edit_day"
                   android:layout_width="0dp"
@@ -65,11 +81,13 @@
             android:text="@string/station_title"
             android:layout_weight="1"
             android:textSize="15sp"
-            android:textAlignment="viewEnd"
+            android:textAlignment="viewStart"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:textStyle="bold"
-            android:layout_marginEnd="10dp" />
+            android:layout_marginEnd="10dp"
+            android:layout_marginLeft="5dp"
+            android:paddingLeft="5dp"/>
 
         <EditText android:id="@+id/edit_station"
                   android:layout_width="0dp"
@@ -91,11 +109,13 @@
             android:text="@string/odometer_title"
             android:layout_weight="1"
             android:textSize="15sp"
-            android:textAlignment="viewEnd"
+            android:textAlignment="viewStart"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:textStyle="bold"
-            android:layout_marginEnd="10dp" />
+            android:layout_marginEnd="10dp"
+            android:layout_marginLeft="5dp"
+            android:paddingLeft="5dp"/>
 
         <EditText android:id="@+id/edit_odometer"
                   android:layout_width="0dp"
@@ -118,11 +138,13 @@
             android:text="@string/fuel_grade_title"
             android:layout_weight="1"
             android:textSize="15sp"
-            android:textAlignment="viewEnd"
+            android:textAlignment="viewStart"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:textStyle="bold"
-            android:layout_marginEnd="10dp" />
+            android:layout_marginEnd="10dp"
+            android:layout_marginLeft="5dp"
+            android:paddingLeft="5dp"/>
 
         <EditText android:id="@+id/edit_fuel_grade"
                   android:layout_width="0dp"
@@ -145,11 +167,13 @@
             android:text="@string/fuel_amount_title"
             android:layout_weight="1"
             android:textSize="15sp"
-            android:textAlignment="viewEnd"
+            android:textAlignment="viewStart"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:textStyle="bold"
-            android:layout_marginEnd="10dp" />
+            android:layout_marginEnd="10dp"
+            android:layout_marginLeft="5dp"
+            android:paddingLeft="5dp"/>
 
         <EditText android:id="@+id/edit_fuel_amount"
                   android:layout_width="0dp"
@@ -166,17 +190,20 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:orientation="horizontal">
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="@string/unit_cost_title"
             android:layout_weight="1"
             android:textSize="15sp"
-            android:textAlignment="viewEnd"
+            android:textAlignment="viewStart"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:textStyle="bold"
-            android:layout_marginEnd="10dp" />
+            android:layout_marginEnd="10dp"
+            android:layout_marginLeft="5dp"
+            android:paddingLeft="5dp"/>
 
         <EditText android:id="@+id/edit_unit_cost"
                   android:layout_width="0dp"

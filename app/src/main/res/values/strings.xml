@@ -7,10 +7,10 @@
     <string name="title_activity_add_entry">Add A New Entry</string>
     <string name="enter_day">Enter Date (yyyy-mm-dd)</string>
     <string name="enter_station">Enter Station</string>
-    <string name="enter_odometer">Enter Odometer Reading (x.x km)</string>
+    <string name="enter_odometer">Enter Odometer Reading (_._ km)</string>
     <string name="enter_fuel_grade">Enter Fuel Grade</string>
     <string name="enter_fuel_amount">Enter Fuel Amount (L)</string>
-    <string name="enter_unit_cost">Enter Unit Cost (x.x Cents/L)</string>
+    <string name="enter_unit_cost">Enter Unit Cost (_._ Cents/L)</string>
 
     <string name="fuel_cost">Fuel Cost</string>
     <string name="previous_entries">PREVIOUS ENTRIES</string>
@@ -19,9 +19,9 @@
     <string name="title_activity_view_entry">View Previous Entries</string>
     <string name="day_title">Date</string>
     <string name="station_title">Station</string>
-    <string name="odometer_title">Odometer Reading (km)</string>
+    <string name="odometer_title">Odometer Reading</string>
     <string name="fuel_grade_title">Fuel Grade</string>
-    <string name="fuel_amount_title">Fuel Amount (L)</string>
+    <string name="fuel_amount_title">Fuel Amount</string>
     <string name="unit_cost_title">Unit Cost</string>
 
     <string name="done_button">Done</string>

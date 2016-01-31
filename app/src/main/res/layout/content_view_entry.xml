@@ -20,7 +20,14 @@
             android:layout_height="wrap_content"
             android:onClick="doneButtonClicked"
             android:text="@string/done_button"
-            />
+            android:layout_weight="1"
+            android:background="#d53939"
+            android:textColor="#ffffff"
+            android:padding="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="2.5dp"/>
 
         <Button
             android:id="@+id/edit_view_button"
@@ -28,7 +35,14 @@
             android:layout_height="wrap_content"
             android:onClick="editButtonClicked"
             android:text="@string/edit_button"
-            />
+            android:layout_weight="1"
+            android:background="#d53939"
+            android:textColor="#ffffff"
+            android:padding="5dp"
+            android:layout_marginLeft="2.5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -41,12 +55,14 @@
             android:text="@string/day_title"
             android:layout_weight="1"
             android:textSize="15sp"
-            android:textAlignment="viewEnd"
+            android:textAlignment="viewStart"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:textStyle="bold"
             android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:paddingStart="10dp"/>
 
         <TextView android:id="@+id/view_day"
             android:layout_width="0dp"
@@ -68,12 +84,14 @@
             android:text="@string/station_title"
             android:layout_weight="1"
             android:textSize="15sp"
-            android:textAlignment="viewEnd"
+            android:textAlignment="viewStart"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:textStyle="bold"
             android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:paddingStart="10dp"/>
 
         <TextView android:id="@+id/view_station"
                   android:layout_width="0dp"
@@ -95,12 +113,14 @@
             android:text="@string/odometer_title"
             android:layout_weight="1"
             android:textSize="15sp"
-            android:textAlignment="viewEnd"
+            android:textAlignment="viewStart"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:textStyle="bold"
             android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:paddingStart="10dp"/>
 
         <TextView android:id="@+id/view_odometer"
                   android:layout_width="0dp"
@@ -122,12 +142,14 @@
             android:text="@string/fuel_grade_title"
             android:layout_weight="1"
             android:textSize="15sp"
-            android:textAlignment="viewEnd"
+            android:textAlignment="viewStart"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:textStyle="bold"
             android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:paddingStart="10dp"/>
 
         <TextView android:id="@+id/view_fuel_grade"
                   android:layout_width="0dp"
@@ -149,12 +171,14 @@
             android:text="@string/fuel_amount_title"
             android:layout_weight="1"
             android:textSize="15sp"
-            android:textAlignment="viewEnd"
+            android:textAlignment="viewStart"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:textStyle="bold"
             android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:paddingStart="10dp"/>
 
         <TextView android:id="@+id/view_fuel_amount"
                   android:layout_width="0dp"
@@ -176,12 +200,14 @@
             android:text="@string/unit_cost_title"
             android:layout_weight="1"
             android:textSize="15sp"
-            android:textAlignment="viewEnd"
+            android:textAlignment="viewStart"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:textStyle="bold"
             android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:paddingStart="10dp"/>
 
         <TextView android:id="@+id/view_unit_cost"
                   android:layout_width="0dp"

@@ -31,7 +31,7 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
         Intent intent = getIntent();
         entry = (Entry) intent.getSerializableExtra("Entry");
 
-        //so the same old entry will be returned if no updates are made
+        // so the same old entry will be returned if no updates are made
         updated_entry = entry;
 
         view_day = (TextView) findViewById(R.id.view_day);
@@ -44,14 +44,14 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
         updateEntryText(entry);
     }
 
-    //send the entry to the EditEntryActivity to be edited
+    // send the entry to the EditEntryActivity to be edited
     public void editButtonClicked(View view) {
         Intent intent = new Intent(this, EditEntryActivity.class);
         intent.putExtra("entry", entry);
         startActivityForResult(intent, LOG_EDIT);
     }
 
-    //return the entry (possibly updated) to the FuelTrackActivity Activity
+    //r eturn the entry (possibly updated) to the FuelTrackActivity Activity
     public void doneButtonClicked(View view) {
         Intent intent = new Intent(this, EditEntryActivity.class);
         intent.putExtra("updated_entry", updated_entry);
@@ -59,8 +59,8 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
         finish();
     }
 
-    //http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
-    //receive the (possibly) edited entry back from the EditEntryActivity
+    // taken Jan-25-2016 from http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
+    // receive the (possibly) edited entry back from the EditEntryActivity
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -75,14 +75,14 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
         }
     }
 
-    //updates the values on the screen to the values of the entry
+    // updates the values on the screen to the values of the entry
     public void updateEntryText(Entry new_entry) {
-        view_day.setText(new_entry.getDay());
-        view_station.setText(new_entry.getStation());
-        view_odometer.setText(new_entry.getOdometer());
-        view_fuel_grade.setText(new_entry.getFuelGrade());
-        view_fuel_amount.setText(new_entry.getFuelAmount());
-        view_unit_cost.setText(new_entry.getUnitCost());
+        view_day.setText(String.format("%s", new_entry.getDay()));
+        view_station.setText(String.format("%s", new_entry.getStation()));
+        view_odometer.setText(String.format("%s km", new_entry.getOdometer()));
+        view_fuel_grade.setText(String.format("%s", new_entry.getFuelGrade()));
+        view_fuel_amount.setText(String.format("%s L", new_entry.getFuelAmount()));
+        view_unit_cost.setText(String.format("%s Cents/L", new_entry.getUnitCost()));
     }
 
     //TODO change the title values not to include units

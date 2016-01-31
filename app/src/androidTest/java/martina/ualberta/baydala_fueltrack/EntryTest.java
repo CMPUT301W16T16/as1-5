@@ -38,7 +38,7 @@ public class EntryTest extends ActivityInstrumentationTestCase2 {
     public void testToString() {
                         // Date         Odometer Station Grade Amount Cost/L  Entry Number
         String[] values = {"2016-01-01", "1000", "Husky", "87", "60", "70.5", "5"};
-        Entry entry = new Entry(values);
+        Entry entry = new Entry();
 
         assertEquals(entry.toString(), "Entry 5 | 2016-01-01");
     }

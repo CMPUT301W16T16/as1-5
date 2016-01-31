@@ -37,13 +37,13 @@ public class EditEntryActivity extends AppCompatActivity implements Serializable
 
         edit_day.setHint(entry.getDay());
         edit_station.setHint(entry.getStation());
-        edit_odometer.setHint(entry.getOdometer());
+        edit_odometer.setHint(String.format("%s km", entry.getOdometer()));
         edit_fuel_grade.setHint(entry.getFuelGrade());
-        edit_fuel_amount.setHint(entry.getFuelAmount());
-        edit_unit_cost.setHint(entry.getUnitCost());
+        edit_fuel_amount.setHint(String.format("%s L", entry.getFuelAmount()));
+        edit_unit_cost.setHint(String.format("%s Cents/L", entry.getUnitCost()));
     }
 
-    //returns the Entry entry after updating it
+    // returns the entry after updating it
     public void completeEditEntry(View view) {
         String edited_day = edit_day.getText().toString();
         String edited_station = edit_station.getText().toString();
@@ -52,7 +52,7 @@ public class EditEntryActivity extends AppCompatActivity implements Serializable
         String edited_fuel_amount = edit_fuel_amount.getText().toString();
         String edited_unit_cost = edit_unit_cost.getText().toString();
 
-        //only update the value if the user entered something for that value
+        // only update the value if the user entered something for that value
         if (!edited_day.isEmpty()) {
             entry.setDay(edited_day);
         }
@@ -72,14 +72,14 @@ public class EditEntryActivity extends AppCompatActivity implements Serializable
             entry.setUnitCost(edited_unit_cost);
         }
 
-        //return the updated entry to the ViewEntry Activity
+        // return the updated entry to the ViewEntry Activity
         Intent intent = new Intent(this, EditEntryActivity.class);
         intent.putExtra("Item", entry);
         setResult(Activity.RESULT_OK, intent);
         finish();
     }
 
-    //returns the entry without updating it
+    //r eturns the entry without updating anything
     public void cancelEditEntry(View view) {
         Intent intent = new Intent(this, EditEntryActivity.class);
         intent.putExtra("Item", entry);

@@ -10,26 +10,26 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class Entry implements Serializable {
 
-    //declaration of variables
-    protected String entry_number;
+    protected int entry_number;
     protected String day;
     protected String station;
     protected String odometer;
     protected String fuel_grade;
     protected String fuel_amount;
     protected String unit_cost;
+    protected double fuel_cost;
 
     public Entry() { }
 
-    //constructor
-    public Entry(String[] entry) {
-        this.day = entry[0];
-        this.station = entry[1];
-        this.odometer = entry[2];
-        this.fuel_grade = entry[3];
-        this.fuel_amount = entry[4];
-        this.unit_cost = entry[5];
-        this.entry_number = entry[6];
+    public Entry(int entry_number, String day, String station, String odometer, String fuel_grade, String fuel_amount, String unit_cost) {
+        this.entry_number = entry_number;
+        this.day = day;
+        this.station = station;
+        this.odometer = odometer;
+        this.fuel_grade = fuel_grade;
+        this.fuel_amount = fuel_amount;
+        this.unit_cost = unit_cost;
+        this.fuel_cost = getFuelCost();
     }
 
     public String getDay() {
@@ -56,10 +56,11 @@ public class Entry implements Serializable {
         return unit_cost;
     }
 
-    public String getEntryNumber() {
+    public int getEntryNumber() {
         return entry_number;
     }
 
+    // calculating the fuel cost in cents/L
     public double getFuelCost() {
         return Double.valueOf(unit_cost) * Double.valueOf(fuel_amount) / 100.0;
     }
@@ -88,8 +89,13 @@ public class Entry implements Serializable {
         this.unit_cost = unit_cost;
     }
 
+    public void setEntryNumber(int entry_number) {
+        this.entry_number = entry_number;
+    }
+
     @Override
+    // the log on the main screen will be e.g. Entry 1 | 2016-01-30 | $54.03
     public String toString() {
-        return "Entry " + entry_number + " | " + day;
+        return "Entry " + entry_number + " | " + day + " | $" + String.format("%.2f", fuel_cost);
     }
 }
