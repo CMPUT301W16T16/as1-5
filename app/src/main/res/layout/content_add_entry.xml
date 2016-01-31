@@ -27,28 +27,28 @@
               android:layout_height="wrap_content"
               android:hint="@string/enter_odometer"
               android:textAlignment="viewStart"
-              android:inputType="number"/>
+              android:inputType="numberDecimal"/>
 
     <EditText android:id="@+id/enter_fuel_grade"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:hint="@string/enter_fuel_grade"
               android:textAlignment="viewStart"
-              android:inputType="number" />
+              android:inputType="numberDecimal" />
 
     <EditText android:id="@+id/enter_fuel_amount"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:hint="@string/enter_fuel_amount"
               android:textAlignment="viewStart"
-              android:inputType="number"/>
+              android:inputType="numberDecimal"/>
 
     <EditText android:id="@+id/enter_unit_cost"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:hint="@string/enter_unit_cost"
               android:textAlignment="viewStart"
-              android:inputType="number" />
+              android:inputType="numberDecimal" />
 
     <Button android:id="@+id/done"
             android:layout_width="match_parent"
@@ -66,6 +66,5 @@
             android:background="#ff3a3a"
             android:textColor="#ffffff"
             android:layout_margin="5dp" />
-
 
 </LinearLayout>
