@@ -50,14 +50,13 @@ public class FuelTrack extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_fuel_track);
 
-        //TODO make it possible to load from file String[] entries = loadFromFile();
         adapter = new ArrayAdapter<Entry>(this,
                 R.layout.list_items, entries);
 
         fuel_cost = (TextView) findViewById(R.id.fuel_cost);
         previousEntries = (ListView) findViewById(R.id.previousEntries);
         previousEntries.setAdapter(adapter);
-        updateCost();
+        //updateCost();
 
         //allows the user the select any log entry to see more details about it, and to edit it
         //http://stackoverflow.com/questions/20922036/android-cant-call-setonitemclicklistener-from-a-listview
@@ -102,7 +101,7 @@ public class FuelTrack extends AppCompatActivity {
         adapter = new ArrayAdapter<Entry>(this,
                 R.layout.list_items, entries);
         previousEntries.setAdapter(adapter);
-        updateCost();
+        //updateCost();
     }
 
     private void loadFromFile() {
@@ -201,7 +200,6 @@ public class FuelTrack extends AppCompatActivity {
     }
 
     public void updateCost() {
-
         double total_cost = 0.0;
         for (int i = 0; i < entries.size(); i++) {
             total_cost += entries.get(i).getFuel_cost();
@@ -210,12 +208,7 @@ public class FuelTrack extends AppCompatActivity {
         fuel_cost.setText(String.format("$ %.2f", total_cost));
     }
 
-
-
-
-    //TODO add a fuel cost to the bottom of the screen
+    //TODO add error catching for when not all fields are entered or fields are entered incorrectly
     //TODO add tests
-
-
 
 }

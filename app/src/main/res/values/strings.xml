@@ -32,5 +32,8 @@
     <string name="button_cancel_entry">Cancel</string>
     <string name="fuel_cost_title">Total Fuel Cost</string>
 
+    <string name="empty_field">Something must be entered in every field</string>
+
+
 
 </resources>

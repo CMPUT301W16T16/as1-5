@@ -93,5 +93,6 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
     }
 
     //TODO change the title values not to include units
+    //maybe add another view that will hold the units off to the right of the value?
 
 }

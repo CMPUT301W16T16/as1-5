@@ -11,50 +11,52 @@
 
 
     <EditText android:id="@+id/enter_day"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_day"
-        android:textAlignment="viewStart"
-        android:phoneNumber="false" />
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="@string/enter_day"
+              android:textAlignment="viewStart" />
 
     <EditText android:id="@+id/enter_station"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_station"
-        android:textAlignment="viewStart" />
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="@string/enter_station"
+              android:textAlignment="viewStart" />
 
     <EditText android:id="@+id/enter_odometer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_odometer"
-        android:textAlignment="viewStart" />
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="@string/enter_odometer"
+              android:textAlignment="viewStart"
+              android:inputType="number"/>
 
     <EditText android:id="@+id/enter_fuel_grade"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_fuel_grade"
-        android:textAlignment="viewStart" />
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="@string/enter_fuel_grade"
+              android:textAlignment="viewStart"
+              android:inputType="number" />
 
     <EditText android:id="@+id/enter_fuel_amount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_fuel_amount"
-        android:textAlignment="viewStart" />
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="@string/enter_fuel_amount"
+              android:textAlignment="viewStart"
+              android:inputType="number"/>
 
     <EditText android:id="@+id/enter_unit_cost"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_unit_cost"
-        android:textAlignment="viewStart" />
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="@string/enter_unit_cost"
+              android:textAlignment="viewStart"
+              android:inputType="number" />
 
     <Button android:id="@+id/done"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/button_complete_entry"
-        android:onClick="completeEntry"
-        android:background="#ff3a3a"
-        android:textColor="#ffffff"
-        android:layout_margin="5dp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_complete_entry"
+            android:background="#ff3a3a"
+            android:textColor="#ffffff"
+            android:layout_margin="5dp" />
 
     <Button android:id="@+id/cancel"
             android:layout_width="match_parent"

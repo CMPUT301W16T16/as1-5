@@ -7,7 +7,6 @@ import java.io.Serializable;
  * Created by Martina on 16-01-25.
  */
 
-// TODO set a default for each entry value so the user doesn't have to enter into each field. The default could be "n/a" or "Not Entered"
 @SuppressWarnings("serial")
 public class Entry implements Serializable {
 
@@ -93,7 +92,4 @@ public class Entry implements Serializable {
     public String toString() {
         return "Entry " + entry_number + " | " + day;
     }
-
-
-
 }
