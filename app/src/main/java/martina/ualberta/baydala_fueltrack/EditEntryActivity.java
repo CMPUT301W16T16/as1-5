@@ -79,7 +79,7 @@ public class EditEntryActivity extends AppCompatActivity implements Serializable
         finish();
     }
 
-    //r eturns the entry without updating anything
+    // returns the entry without updating anything
     public void cancelEditEntry(View view) {
         Intent intent = new Intent(this, EditEntryActivity.class);
         intent.putExtra("Item", entry);

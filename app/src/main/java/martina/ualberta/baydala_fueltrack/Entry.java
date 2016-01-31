@@ -1,6 +1,5 @@
 package martina.ualberta.baydala_fueltrack;
 
-import android.widget.TextView;
 import java.io.Serializable;
 
 /**

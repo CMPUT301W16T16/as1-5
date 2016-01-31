@@ -84,8 +84,4 @@ public class ViewEntryActivity extends AppCompatActivity implements Serializable
         view_fuel_amount.setText(String.format("%s L", new_entry.getFuelAmount()));
         view_unit_cost.setText(String.format("%s Cents/L", new_entry.getUnitCost()));
     }
-
-    //TODO change the title values not to include units
-    //maybe add another view that will hold the units off to the right of the value?
-
 }
