@@ -1,5 +1,3 @@
-//used some techniques from "Android Programming by Big Nerd Ranch, Volume 2
-
 package martina.ualberta.baydala_fueltrack;
 
 import android.app.Activity;
@@ -54,6 +52,7 @@ public class FuelTrackActivity extends AppCompatActivity {
 
         // allows the user the select any log entry to see more details about it, and to edit it
         // taken Jan-23-2016 from http://stackoverflow.com/questions/20922036/android-cant-call-setonitemclicklistener-from-a-listview
+        // taken Jan-25-2016 from http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
         previousEntries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
@@ -119,6 +118,7 @@ public class FuelTrackActivity extends AppCompatActivity {
         }
     }
 
+    // taken from LonelyTwitter
     private void saveInFile() {
         try {
             FileOutputStream fos = openFileOutput(FILENAME,
@@ -192,7 +192,6 @@ public class FuelTrackActivity extends AppCompatActivity {
         for (int i = 0; i < entries.size(); i++) {
             total_cost += entries.get(i).getFuelCost();
         }
-        // taken Jan-27-2016 from http://stackoverflow.com/questions/11701399/round-up-to-2-decimal-places-in-java
         fuel_cost.setText(String.format("$ %.2f", total_cost));
     }
 }

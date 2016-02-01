@@ -16,7 +16,7 @@ public class Entry implements Serializable {
     private String fuel_grade;
     private double fuel_amount;
     private double unit_cost;
-    private double fuel_cost;
+
 
     public Entry() { }
 
@@ -28,7 +28,6 @@ public class Entry implements Serializable {
         this.fuel_grade = fuel_grade;
         this.fuel_amount = fuel_amount;
         this.unit_cost = unit_cost;
-        //this.fuel_cost = getFuelCost();
     }
 
     public String getDay() {
@@ -59,7 +58,7 @@ public class Entry implements Serializable {
         return entry_number;
     }
 
-    // calculating the fuel cost in cents/L
+    // calculating the fuel cost in dollars
     public double getFuelCost() {
         return Double.valueOf(String.format("%.2f", (unit_cost * fuel_amount / 100.0)));
     }

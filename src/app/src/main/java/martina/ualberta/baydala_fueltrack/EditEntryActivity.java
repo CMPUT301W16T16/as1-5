@@ -72,6 +72,7 @@ public class EditEntryActivity extends AppCompatActivity implements Serializable
             entry.setUnitCost(Double.valueOf(edited_unit_cost));
         }
 
+        // taken Jan-25-2016 from http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
         // return the updated entry to the ViewEntry Activity
         Intent intent = new Intent(this, EditEntryActivity.class);
         intent.putExtra("Item", entry);
@@ -79,6 +80,7 @@ public class EditEntryActivity extends AppCompatActivity implements Serializable
         finish();
     }
 
+    // taken Jan-25-2016 from http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
     // returns the entry without updating anything
     public void cancelEditEntry(View view) {
         Intent intent = new Intent(this, EditEntryActivity.class);
