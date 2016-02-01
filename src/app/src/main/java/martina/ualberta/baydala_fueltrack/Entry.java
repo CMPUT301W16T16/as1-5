@@ -9,14 +9,14 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class Entry implements Serializable {
 
-    protected int entry_number;
-    protected String day;
-    protected String station;
-    protected String odometer;
-    protected String fuel_grade;
-    protected String fuel_amount;
-    protected String unit_cost;
-    protected double fuel_cost;
+    private int entry_number;
+    private String day;
+    private String station;
+    private String odometer;
+    private String fuel_grade;
+    private String fuel_amount;
+    private String unit_cost;
+    private double fuel_cost;
 
     public Entry() { }
 

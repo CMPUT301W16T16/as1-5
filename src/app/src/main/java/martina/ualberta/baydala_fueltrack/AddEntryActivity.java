@@ -16,19 +16,19 @@ public class AddEntryActivity extends AppCompatActivity implements Serializable 
 
     private int entry_number;
 
-    EditText entered_day_text;
-    EditText entered_station_text;
-    EditText entered_odometer_text;
-    EditText entered_fuel_grade_text;
-    EditText entered_fuel_amount_text;
-    EditText entered_unit_cost_text;
+    private EditText entered_day_text;
+    private EditText entered_station_text;
+    private EditText entered_odometer_text;
+    private EditText entered_fuel_grade_text;
+    private EditText entered_fuel_amount_text;
+    private EditText entered_unit_cost_text;
 
-    String entered_day;
-    String entered_station;
-    String entered_odometer;
-    String entered_fuel_grade;
-    String entered_fuel_amount;
-    String entered_unit_cost;
+    private String entered_day;
+    private String entered_station;
+    private String entered_odometer;
+    private String entered_fuel_grade;
+    private String entered_fuel_amount;
+    private String entered_unit_cost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
