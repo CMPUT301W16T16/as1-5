@@ -125,7 +125,7 @@
                   android:textColor="#000000"
                   android:textSize="15sp"
                   android:layout_marginStart="10dp"
-                  android:inputType="numberDecimal|number"/>
+                  android:inputType="numberDecimal"/>
     </LinearLayout>
 
     <LinearLayout
@@ -153,8 +153,7 @@
                   android:gravity="center_vertical"
                   android:textColor="#000000"
                   android:textSize="15sp"
-                  android:layout_marginStart="10dp"
-                  android:inputType="numberDecimal|number"/>
+                  android:layout_marginStart="10dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -183,7 +182,7 @@
                   android:textColor="#000000"
                   android:textSize="15sp"
                   android:layout_marginStart="10dp"
-                  android:inputType="numberDecimal|number"/>
+                  android:inputType="numberDecimal"/>
     </LinearLayout>
 
     <LinearLayout
@@ -213,7 +212,7 @@
                   android:textColor="#000000"
                   android:textSize="15sp"
                   android:layout_marginStart="10dp"
-                  android:inputType="numberDecimal|number"/>
+                  android:inputType="numberDecimal"/>
     </LinearLayout>
 
 

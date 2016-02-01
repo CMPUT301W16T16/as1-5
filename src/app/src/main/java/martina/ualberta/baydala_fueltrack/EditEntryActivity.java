@@ -60,16 +60,16 @@ public class EditEntryActivity extends AppCompatActivity implements Serializable
             entry.setStation(edited_station);
         }
         if (!edited_odometer.isEmpty()) {
-            entry.setOdometer(edited_odometer);
+            entry.setOdometer(Double.valueOf(edited_odometer));
         }
         if (!edited_fuel_grade.isEmpty()) {
             entry.setFuelGrade(edited_fuel_grade);
         }
         if (!edited_fuel_amount.isEmpty()) {
-            entry.setFuelAmount(edited_fuel_amount);
+            entry.setFuelAmount(Double.valueOf(edited_fuel_amount));
         }
         if (!edited_unit_cost.isEmpty()) {
-            entry.setUnitCost(edited_unit_cost);
+            entry.setUnitCost(Double.valueOf(edited_unit_cost));
         }
 
         // return the updated entry to the ViewEntry Activity

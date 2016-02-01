@@ -46,7 +46,6 @@
                   android:layout_height="0dp"
                   android:hint="@string/enter_fuel_grade"
                   android:textAlignment="viewStart"
-                  android:inputType="numberDecimal"
                   android:layout_weight="1"
             />
 

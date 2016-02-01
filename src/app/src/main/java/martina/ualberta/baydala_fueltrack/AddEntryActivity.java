@@ -58,7 +58,7 @@ public class AddEntryActivity extends AppCompatActivity implements Serializable 
                 } else {
                     // returning the inputted Strings to the FuelTrackActivity class to be displayed
                     // Taken Jan-25-2016 from http://stackoverflow.com/questions/1124548/how-to-pass-the-values-from-one-activity-to-previous-activity
-                    Entry new_entry = new Entry(entry_number, entered_day, entered_station, entered_odometer, entered_fuel_grade, entered_fuel_amount, entered_unit_cost);
+                    Entry new_entry = new Entry(entry_number, entered_day, entered_station, Double.valueOf(entered_odometer), entered_fuel_grade, Double.valueOf(entered_fuel_amount), Double.valueOf(entered_unit_cost));
                     Intent intent = new Intent(AddEntryActivity.this, AddEntryActivity.class);
                     intent.putExtra("NEW", new_entry);
                     setResult(Activity.RESULT_OK, intent);

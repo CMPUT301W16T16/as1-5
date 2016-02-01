@@ -12,15 +12,15 @@ public class Entry implements Serializable {
     private int entry_number;
     private String day;
     private String station;
-    private String odometer;
+    private double odometer;
     private String fuel_grade;
-    private String fuel_amount;
-    private String unit_cost;
+    private double fuel_amount;
+    private double unit_cost;
     private double fuel_cost;
 
     public Entry() { }
 
-    public Entry(int entry_number, String day, String station, String odometer, String fuel_grade, String fuel_amount, String unit_cost) {
+    public Entry(int entry_number, String day, String station,double odometer, String fuel_grade, double fuel_amount, double unit_cost) {
         this.entry_number = entry_number;
         this.day = day;
         this.station = station;
@@ -39,20 +39,20 @@ public class Entry implements Serializable {
         return station;
     }
 
-    public String getOdometer() {
-        return odometer;
+    public double getOdometer() {
+        return Double.valueOf(String.format("%.1f", odometer));
     }
 
     public String getFuelGrade() {
         return fuel_grade;
     }
 
-    public String getFuelAmount() {
-        return fuel_amount;
+    public double getFuelAmount() {
+        return Double.valueOf(String.format("%.3f", fuel_amount));
     }
 
-    public String getUnitCost() {
-        return unit_cost;
+    public double getUnitCost() {
+        return Double.valueOf(String.format("%.1f", unit_cost));
     }
 
     public int getEntryNumber() {
@@ -61,7 +61,7 @@ public class Entry implements Serializable {
 
     // calculating the fuel cost in cents/L
     public double getFuelCost() {
-        return Double.valueOf(unit_cost) * Double.valueOf(fuel_amount) / 100.0;
+        return Double.valueOf(String.format("%.2f", (unit_cost * fuel_amount / 100.0)));
     }
 
     public void setDay(String day) {
@@ -72,7 +72,7 @@ public class Entry implements Serializable {
         this.station = station;
     }
 
-    public void setOdometer(String odometer) {
+    public void setOdometer(double odometer) {
         this.odometer = odometer;
     }
 
@@ -80,11 +80,11 @@ public class Entry implements Serializable {
         this.fuel_grade = fuel_grade;
     }
 
-    public void setFuelAmount(String fuel_amount) {
+    public void setFuelAmount(double fuel_amount) {
         this.fuel_amount = fuel_amount;
     }
 
-    public void setUnitCost(String unit_cost) {
+    public void setUnitCost(double unit_cost) {
         this.unit_cost = unit_cost;
     }
 
