@@ -28,7 +28,7 @@ public class Entry implements Serializable {
         this.fuel_grade = fuel_grade;
         this.fuel_amount = fuel_amount;
         this.unit_cost = unit_cost;
-        this.fuel_cost = getFuelCost();
+        //this.fuel_cost = getFuelCost();
     }
 
     public String getDay() {
@@ -95,6 +95,6 @@ public class Entry implements Serializable {
     @Override
     // the log on the main screen will be e.g. Entry 1 | 2016-01-30 | $54.03
     public String toString() {
-        return "Entry " + entry_number + " | " + day + " | $" + String.format("%.2f", fuel_cost);
+        return "Entry " + entry_number + " | " + day + " | $" + (String.format("%.2f", (unit_cost * fuel_amount / 100.0)));
     }
 }
